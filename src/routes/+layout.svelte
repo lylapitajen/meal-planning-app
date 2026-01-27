@@ -1,12 +1,18 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
-	import "../app.css"
+  import favicon from '$lib/assets/favicon.svg';
+  import Nav from '$lib/components/Nav.svelte';
+  import '../app.css';
 
-	let { children } = $props();
+  let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+  <link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
+<div class="md: max-w-3xl mx-auto bg-bg-default min-h-screen text-fg-default">
+  <Nav></Nav>
+  <main class="flex flex-col px-4 py-6 gap-6 pb-24">
+    {@render children()}
+  </main>
+</div>

@@ -1,1 +1,22 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+body {
+  @apply bg-gray-50;
+}
+
+@theme {
+  /* BACKGROUNDS */
+  --color-bg-default: var(--color-white);
+  /* FOREGROUNDS */
+  --color-fg-default: var(--color-gray-800);
+  --color-fg-secondary: var(--color-gray-700);
+  --color-fg-tertiary: var(--color-gray-500);
+  --color-fg-accent: var(--color-sky-600);
+
+  /* BORDERS */
+  --color-border-default: var(--color-gray-200);
+}
+
+h1 {
+  @apply text-xl font-semibold;
+}
