@@ -1,27 +1,27 @@
 @import 'tailwindcss';
 
-body {
-  @apply bg-gray-50;
-}
-
 @theme {
   /* BACKGROUNDS */
   --color-bg-default: var(--color-white);
   --color-bg-accent: var(--color-sky-600);
   --color-bg-accent-light: var(--color-sky-50);
+  --color-bg-negative: var(--color-red-700);
+  --color-bg-negative-light: var(--color-red-50);
   /* FOREGROUNDS */
   --color-fg-default: var(--color-gray-800);
   --color-fg-secondary: var(--color-gray-700);
   --color-fg-tertiary: var(--color-gray-500);
   --color-fg-accent: var(--color-sky-600);
+  --color-fg-negative: var(--color-red-700);
   --color-fg-onAccent: var(--color-white);
+  --color-fg-onNegative: var(--color-white);
 
   /* BORDERS */
   --color-border-default: var(--color-gray-200);
 }
 
 h1 {
-  @apply text-xl font-semibold;
+  @apply text-2xl font-semibold;
 }
 
 .main-container {

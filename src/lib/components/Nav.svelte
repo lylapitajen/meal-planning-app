@@ -37,7 +37,7 @@
 </script>
 
 <nav
-  class="flex gap-2 items-center p-1 rounded-full bg-bg-default shadow-sm border border-border-default fixed bottom-4 left-1/2 -translate-x-1/2"
+  class="flex gap-2 items-center p-1 rounded-full bg-bg-default shadow-sm border border-border-default fixed bottom-3 left-1/2 -translate-x-1/2"
 >
   {#each navItems as { icon, href }}
     {@const Icon = icon}

@@ -1,10 +1,13 @@
 <script lang="ts">
   import type { HTMLButtonAttributes } from 'svelte/elements';
+  import { omit } from 'lodash-es';
 
   type Props = HTMLButtonAttributes & {
-    variant: 'primary' | 'secondary' | 'tertiary';
+    variant?: 'primary' | 'secondary' | 'tertiary';
     size?: 'sm' | 'lg';
     iconOnly?: boolean;
+    className?: string;
+    destructive?: boolean;
   };
 
   // type ButtonProps = {
@@ -14,37 +17,56 @@
   //   type: HTMLButtonElement['type'];
   // };
 
-  let { variant = 'primary', size, iconOnly = false, children, ...props }: Props = $props();
-  let className = $derived.by(() => {
-    return `${variant} ${size || ''} ${iconOnly ? 'icon-only' : ''}`.trim();
+  let {
+    variant = 'primary',
+    size,
+    className,
+    iconOnly = false,
+    destructive = false,
+    children,
+    ...props
+  }: Props = $props();
+  let allClasses = $derived.by(() => {
+    return `${className} ${variant} ${size || ''} ${iconOnly ? 'icon-only' : ''} ${destructive && 'destructive'}`.trim();
   });
 </script>
 
-<button aria-label="button" class={className} {...props}>{@render children?.()}</button>
+<button aria-label="button" class={allClasses} {...omit(props, ['class'])}>{@render children?.()}</button>
 
 <style>
   @reference "../../app.css";
 
   button {
-    @apply py-2 px-4 rounded-lg inline-flex gap-1 font-medium justify-center items-center cursor-pointer [&>svg]:size-3.5;
+    @apply py-2 px-4 rounded-full inline-flex gap-1 font-medium justify-center items-center cursor-pointer [&>svg]:size-3.5;
   }
-  .icon-only {
-    @apply size-10 p-0;
-  }
+  /* COLOR VARIANTS */
 
   .primary {
     @apply bg-bg-accent text-fg-onAccent;
+  }
+  .primary.destructive {
+    @apply bg-bg-negative text-fg-onNegative;
   }
 
   .secondary {
     @apply text-fg-accent bg-bg-accent-light;
   }
+  .secondary.destructive {
+    @apply bg-bg-negative-light text-fg-negative;
+  }
 
   .tertiary {
     @apply bg-white text-fg-accent;
   }
+  .tertiary.destructive {
+    @apply text-fg-negative;
+  }
+  /* SIZE VARIANTS */
+  .icon-only {
+    @apply size-10 p-0;
+  }
   .sm {
-    @apply py-1.5 px-3 text-sm;
+    @apply py-1.5 px-3.5 text-sm;
   }
   .sm.icon-only {
     @apply size-8 p-0;
