@@ -7,11 +7,14 @@ body {
 @theme {
   /* BACKGROUNDS */
   --color-bg-default: var(--color-white);
+  --color-bg-accent: var(--color-sky-600);
+  --color-bg-accent-light: var(--color-sky-50);
   /* FOREGROUNDS */
   --color-fg-default: var(--color-gray-800);
   --color-fg-secondary: var(--color-gray-700);
   --color-fg-tertiary: var(--color-gray-500);
   --color-fg-accent: var(--color-sky-600);
+  --color-fg-onAccent: var(--color-white);
 
   /* BORDERS */
   --color-border-default: var(--color-gray-200);

@@ -21,7 +21,7 @@
   ];
   $inspect(page);
 
-  const activeClass = 'bg-gray-100 text-fg-accent';
+  const activeClass = 'bg-bg-accent-light text-fg-accent';
   const inactiveClass = 'text-fg-tertiary';
 
   const checkActive = (href: string) => {

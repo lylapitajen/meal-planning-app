@@ -10,9 +10,9 @@
   <link rel="icon" href={favicon} />
 </svelte:head>
 
-<div class="md: max-w-3xl mx-auto bg-bg-default min-h-screen text-fg-default">
+<div class="md:max-w-2xl mx-auto bg-bg-default min-h-screen text-fg-default">
   <Nav></Nav>
-  <main class="pb-24">
+  <main class="flex flex-col gap-6 pb-24">
     {@render children()}
   </main>
 </div>
