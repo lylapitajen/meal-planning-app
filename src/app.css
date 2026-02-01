@@ -145,3 +145,13 @@ h1 {
 .main-container {
   @apply flex flex-col gap-6 px-5 py-4;
 }
+
+@layer components {
+  form {
+    @apply flex flex-col gap-4;
+  }
+
+  input {
+    @apply border border-border-default py-2 px-3 rounded-sm;
+  }
+}

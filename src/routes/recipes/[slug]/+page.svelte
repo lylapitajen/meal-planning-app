@@ -49,7 +49,7 @@
     </ul>
     <div class="flex flex-col gap-2 mt-4">
       <Button variant="secondary"><Pencil />Edit</Button>
-      <Button variant="primary" destructive><Trash />Delete</Button>
+      <Button variant="secondary" destructive><Trash />Delete</Button>
     </div>
   </div>
 </div>

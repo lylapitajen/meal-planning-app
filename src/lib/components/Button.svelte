@@ -4,7 +4,7 @@
 
   type Props = HTMLButtonAttributes & {
     variant?: 'primary' | 'secondary' | 'tertiary';
-    size?: 'sm' | 'lg';
+    size?: 'xs' | 'sm' | 'lg';
     iconOnly?: boolean;
     className?: string;
     destructive?: boolean;
@@ -64,6 +64,9 @@
   /* SIZE VARIANTS */
   .icon-only {
     @apply size-10 p-0;
+  }
+  .xs.icon-only {
+    @apply size-6 p-0;
   }
   .sm {
     @apply py-1.5 px-3.5 text-sm;
