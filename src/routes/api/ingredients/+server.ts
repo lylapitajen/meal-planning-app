@@ -8,6 +8,9 @@ const getIngredientsSearch = async (filters: any): Promise<Ingredient[]> => {
     const res = await strapiAxios.get('/ingredients', {
       params: {
         filters,
+        populate: {
+          ingredientType: true,
+        },
       },
     });
     return res.data.data;

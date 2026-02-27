@@ -3,12 +3,24 @@
   import axios from 'axios';
   import type { Ingredient } from '$lib/types';
 
+  type Props = {
+    searchEndPoint: string;
+    onSelect?: (ingredient: Ingredient) => void;
+  };
+
+  let { searchEndPoint, onSelect }: Props = $props();
+
   let searchValue = $state('');
   let loading = $state(false);
   let results = $state<Ingredient[]>([]);
   let searchTimeout: number;
 
-  let { searchEndPoint } = $props();
+  function handleSelect(ingredient: Ingredient) {
+    results = [];
+    searchValue = '';
+
+    onSelect?.(ingredient);
+  }
 
   $effect(() => {
     // Clear previous timeout
@@ -27,7 +39,7 @@
 
     searchTimeout = setTimeout(async () => {
       try {
-        const response = await axios.get('/api/ingredients', {
+        const response = await axios.get(`/api/${searchEndPoint}`, {
           params: {
             q: searchValue,
           },
@@ -59,16 +71,13 @@
         {#each results as ingredient}
           <button
             class="py-2 px-3 flex gap-2 items-center rounded-sm hover:bg-gray-100 text-left w-full"
-            onclick={() => {
-              // TODO: Dispatch selection event
-              console.log('Selected ingredient:', ingredient);
-            }}
+            onclick={() => handleSelect(ingredient)}
           >
             <span class="font-medium">{ingredient.name}</span>
           </button>
         {/each}
       {:else}
-        <span class="py-2 px-3 text-fg-tertiary italic">No ingredients found</span>
+        <span class="py-2 px-3 text-fg-tertiary">Create '{searchValue}'</span>
       {/if}
     </div>
   {/if}

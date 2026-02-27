@@ -4,10 +4,10 @@ export type Ingredient = {
   id: number;
   name: string;
   quantity?: string;
-  color?: string;
-  icon: string;
   ingredientType?: {
     name: IngredientType;
+    icon?: string;
+    color?: string;
   };
 };
 

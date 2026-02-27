@@ -1,4 +1,3 @@
-import { recipes } from '$lib/data/recipes';
 import type { PageServerLoad } from './$types';
 import { getAllRecipes } from '$lib/api/recipes.server';
 
