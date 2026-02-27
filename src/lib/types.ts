@@ -1,7 +1,14 @@
+export type IngredientType = 'protein' | 'carbs' | 'produce' | 'seasoning' | 'dairy' | 'other';
+
 export type Ingredient = {
+  id: number;
   name: string;
   quantity?: string;
-  type?: 'meat' | 'vegetable' | 'carbs' | 'dairy' | 'seasoning' | 'other';
+  color?: string;
+  icon: string;
+  ingredientType?: {
+    name: IngredientType;
+  };
 };
 
 export type Recipe = {
