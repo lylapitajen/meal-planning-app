@@ -16,6 +16,8 @@
   <Button variant="secondary" className="absolute top-5 left-5" iconOnly onclick={() => goto('/recipes')}>
     <ArrowLeft />
   </Button>
+  <!--TODO:Create a fallback image/icon -->
+
   {#if thumbnail}
     <img
       src={strapiImageUrl(thumbnail)}

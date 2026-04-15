@@ -8,6 +8,8 @@
 </script>
 
 <a href="/recipes/{slug}" class="flex gap-4 p-4 rounded-lg border border-border-default items-center shadow-2xs">
+  <!--TODO:Create a fallback image/icon -->
+
   {#if thumbnail}
     <img src={strapiImageUrl(thumbnail)} alt="Recipe" class="h-16! w-16! rounded object-cover" />
   {/if}
