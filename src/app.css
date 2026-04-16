@@ -73,23 +73,24 @@
 } */
 
 @theme inline {
+  --color-brand-accent: #b193ff;
+  --color-brand-accent-light: #ece4ff;
   /* BACKGROUNDS */
-  --color-bg-default: var(--color-white);
-  --color-bg-accent: var(--color-sky-600);
-  --color-bg-accent-light: var(--color-sky-50);
-  --color-bg-negative: var(--color-red-700);
-  --color-bg-negative-light: var(--color-red-50);
+  --color-bg-default: #fffcfa;
+  --color-bg-elevated: #fff;
+  --color-bg-negative: #ff4a4a;
+  --color-bg-negative-light: #ffc9c9;
   /* FOREGROUNDS */
-  --color-fg-default: var(--color-gray-800);
+  --color-fg-default: var(--color-gray-950);
   --color-fg-secondary: var(--color-gray-700);
   --color-fg-tertiary: var(--color-gray-500);
-  --color-fg-accent: var(--color-sky-600);
-  --color-fg-negative: var(--color-red-700);
-  --color-fg-onAccent: var(--color-white);
-  --color-fg-onNegative: var(--color-white);
+  --color-fg-negative: #cc3b3b;
 
   /* BORDERS */
-  --color-border-default: var(--color-gray-200);
+  --color-border-default: var(--color-gray-950);
+
+  /* SHADOWS */
+  --shadow-harsh: 4px 4px var(--color-gray-950);
 
   /* SHADCN DEFAULT TOKENS */
   --radius-sm: calc(var(--radius) - 4px);
@@ -135,6 +136,7 @@
   }
   body {
     @apply bg-bg-default text-fg-default;
+    font-family: 'Space Grotesk', sans-serif;
   }
 }
 
@@ -143,7 +145,7 @@ h1 {
 }
 
 .main-container {
-  @apply flex flex-col gap-6 px-5 py-4;
+  @apply flex flex-col gap-10 px-5 py-4;
 }
 
 @layer components {
@@ -153,7 +155,7 @@ h1 {
 
   input,
   textarea {
-    @apply border border-border-default py-2 px-3 rounded-sm;
+    @apply border border-border-default py-2 px-3;
   }
 
   textarea {

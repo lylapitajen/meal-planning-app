@@ -10,13 +10,6 @@
     destructive?: boolean;
   };
 
-  // type ButtonProps = {
-  //   disabled?: boolean;
-  //   onclick?: Function;
-  //   children: any;
-  //   type: HTMLButtonElement['type'];
-  // };
-
   let {
     variant = 'primary',
     size,
@@ -37,26 +30,26 @@
   @reference "../../app.css";
 
   button {
-    @apply py-2 px-4 rounded-full inline-flex gap-1 font-medium justify-center items-center cursor-pointer [&>svg]:size-3.5;
+    @apply border border-neutral-900 py-2 px-4 inline-flex gap-1 font-medium justify-center items-center cursor-pointer [&>svg]:size-3.5;
   }
-  /* COLOR VARIANTS */
+  /* TYPE VARIANTS */
 
   .primary {
-    @apply bg-bg-accent text-fg-onAccent;
+    @apply bg-brand-accent text-fg-default;
   }
   .primary.destructive {
-    @apply bg-bg-negative text-fg-onNegative;
+    @apply bg-bg-negative text-fg-default;
   }
 
   .secondary {
-    @apply text-fg-accent bg-bg-accent-light;
+    @apply text-fg-default bg-brand-accent-light;
   }
   .secondary.destructive {
-    @apply bg-bg-negative-light text-fg-negative;
+    @apply bg-bg-negative-light text-fg-default;
   }
 
   .tertiary {
-    @apply bg-white text-fg-accent;
+    @apply bg-white text-brand-accent border-none!;
   }
   .tertiary.destructive {
     @apply text-fg-negative;

@@ -4,6 +4,7 @@
   import Button from '$lib/components/Button.svelte';
   import { ArrowLeft, Pencil, Plus, Trash } from '@lucide/svelte';
   import { strapiImageUrl } from '$lib/utils.js';
+  import FallbackImage from '$lib/components/FallbackImage.svelte';
 
   let { data } = $props();
   let { title, ingredients, images, notes } = $derived(data.recipe);
@@ -16,18 +17,17 @@
   <Button variant="secondary" className="absolute top-5 left-5" iconOnly onclick={() => goto('/recipes')}>
     <ArrowLeft />
   </Button>
-  <!--TODO:Create a fallback image/icon -->
+  <div class="h-72">
+    {#if thumbnail}
+      <img src={strapiImageUrl(thumbnail)} alt={thumbnail.alternativeText} class="w-full h-full object-cover" />
+    {:else}
+      <FallbackImage className="w-full h-full" />
+    {/if}
+  </div>
 
-  {#if thumbnail}
-    <img
-      src={strapiImageUrl(thumbnail)}
-      alt={thumbnail.alternativeText}
-      class="rounded-b-xl h-72 w-full object-cover"
-    />
-  {/if}
   <!-- Recipe info -->
   <div
-    class="p-3 flex flex-col gap-1 items-center bg-bg-default border border-border-default rounded-md shadow-sm w-[90%] mx-auto absolute -bottom-16 left-1/2 -translate-x-1/2"
+    class="p-3 flex flex-col gap-1 items-center bg-bg-elevated border border-border-default shadow-harsh w-[90%] mx-auto absolute -bottom-16 left-1/2 -translate-x-1/2"
   >
     <h1 class="text-center">{title}</h1>
     <div class="flex gap-2 items-center">
@@ -51,7 +51,7 @@
     </ul>
     <div class="flex flex-col gap-2 mt-4">
       <Button variant="secondary"><Pencil />Edit</Button>
-      <Button variant="secondary" destructive><Trash />Delete</Button>
+      <Button variant="tertiary" destructive><Trash />Delete</Button>
     </div>
   </div>
 </div>

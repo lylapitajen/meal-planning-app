@@ -56,14 +56,14 @@
 </script>
 
 <div class="relative">
-  <div class="flex gap-1 items-center justify-start border border-border-default py-2 px-3 rounded-sm">
+  <div class="flex gap-1 items-center justify-start border border-border-default py-2 px-3">
     <Search class="size-4 text-fg-tertiary" />
     <input class="border-0 outline-0 w-full p-0" type="text" bind:value={searchValue} />
   </div>
   {#if searchValue.length >= 3}
     <!--TODO:Create a reusable menu component -->
     <div
-      class="absolute flex flex-col p-1 mt-1 rounded-sm border border-border-default shadow-sm w-full bg-bg-default z-10 max-h-64 overflow-y-auto"
+      class="absolute flex flex-col p-1 mt-1 border border-border-default shadow-harsh w-full bg-bg-elevated z-10 max-h-64 overflow-y-auto"
     >
       {#if loading}
         <span class="py-2 px-3 text-fg-tertiary italic">Searching...</span>

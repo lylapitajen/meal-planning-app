@@ -72,7 +72,7 @@
   <h1>Add a recipe</h1>
 
   <form onsubmit={handleSubmit} class="flex flex-col gap-4">
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-2">
       <label for="title">Title</label>
       <input
         type="text"
@@ -80,12 +80,11 @@
         name="title"
         bind:value={recipeData.title}
         required
-        class="border border-border-default rounded-sm p-2"
         placeholder="Enter recipe title..."
       />
     </div>
 
-    <div>
+    <div class="flex flex-col gap-2">
       <h2>Ingredients</h2>
       <SearchBar searchEndPoint="ingredients" onSelect={handleIngredientSelect} />
       <div class="flex flex-col gap-2 mt-2">
@@ -99,14 +98,13 @@
       </div>
     </div>
 
-    <div class="flex flex-col gap-1">
+    <div class="flex flex-col gap-2">
       <label for="notes">Notes (optional)</label>
       <textarea
         id="notes"
         name="notes"
         bind:value={recipeData.notes}
         rows="4"
-        class="border border-border-default rounded-sm p-2"
         placeholder="Add any cooking instructions or notes..."
       ></textarea>
     </div>

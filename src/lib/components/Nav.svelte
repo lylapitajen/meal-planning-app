@@ -21,7 +21,7 @@
   ];
   $inspect(page);
 
-  const activeClass = 'bg-bg-accent-light text-fg-accent';
+  const activeClass = 'bg-brand-accent-light text-fg-default border border-border-default';
   const inactiveClass = 'text-fg-tertiary';
 
   const checkActive = (href: string) => {
@@ -37,11 +37,11 @@
 </script>
 
 <nav
-  class="flex gap-2 items-center p-1 rounded-full bg-bg-default shadow-sm border border-border-default fixed bottom-3 left-1/2 -translate-x-1/2"
+  class="flex gap-2 items-center p-1 bg-white shadow-harsh border border-border-default fixed bottom-3 left-1/2 -translate-x-1/2"
 >
   {#each navItems as { icon, href }}
     {@const Icon = icon}
-    <a {href} class="p-4 rounded-full {checkActive(href)}">
+    <a {href} class="p-4 {checkActive(href)}">
       <Icon size={22} />
     </a>
   {/each}
