@@ -19,7 +19,6 @@
       href: '/shopping-list',
     },
   ];
-  $inspect(page);
 
   const activeClass = 'bg-brand-accent-light text-fg-default border border-border-default';
   const inactiveClass = 'text-fg-tertiary';

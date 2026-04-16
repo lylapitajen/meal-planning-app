@@ -5,9 +5,10 @@
   import { ArrowLeft, Pencil, Plus, Trash } from '@lucide/svelte';
   import { strapiImageUrl } from '$lib/utils.js';
   import FallbackImage from '$lib/components/FallbackImage.svelte';
+  import { displayIngredientsInfo } from '$lib/utils.js';
 
   let { data } = $props();
-  let { title, ingredients, images, notes } = $derived(data.recipe);
+  let { title, recipeIngredients, images, notes } = $derived(data.recipe);
   let thumbnail = $derived(images?.[0]);
   $inspect('Recipe', data.recipe);
   $inspect('Thumbnail', thumbnail);
@@ -31,7 +32,7 @@
   >
     <h1 class="text-center">{title}</h1>
     <div class="flex gap-2 items-center">
-      <p class="text-fg-tertiary">{ingredients.length} ingredients</p>
+      <p class="text-fg-tertiary">{displayIngredientsInfo(recipeIngredients)}</p>
     </div>
   </div>
 </div>
@@ -40,12 +41,10 @@
   <div class="flex flex-col gap-2 mt-12">
     <h2 class="text-lg font-semibold">Ingredients</h2>
     <ul class="flex flex-col gap-2 text-fg-secondary">
-      {#each ingredients as { name, quantity }}
+      {#each recipeIngredients as { quantity, ingredient, unit }}
         <li class="flex gap-0">
-          <span class="font-medium">{name}</span>
-          {#if quantity}
-            <span class="text-fg-tertiary">, {quantity}</span>
-          {/if}
+          <span class="font-medium">{ingredient.name}</span>
+          <span class="text-fg-tertiary">, {quantity} {unit !== 'count' ? unit : ''} </span>
         </li>
       {/each}
     </ul>

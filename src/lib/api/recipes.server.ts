@@ -6,7 +6,11 @@ export const getAllRecipes = async (): Promise<Recipe[]> => {
     const res = await strapiAxios.get('/recipes', {
       params: {
         populate: {
-          ingredients: true,
+          recipeIngredients: {
+            populate: {
+              ingredient: true,
+            },
+          },
           images: true,
         },
       },
@@ -26,7 +30,11 @@ export const getRecipe = async (slug: string): Promise<Recipe> => {
           slug: slug,
         },
         populate: {
-          ingredients: true,
+          recipeIngredients: {
+            populate: {
+              ingredient: true,
+            },
+          },
           images: true,
         },
       },

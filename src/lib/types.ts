@@ -1,14 +1,23 @@
+import type { EnumDeclaration } from 'typescript';
+
 export type IngredientType = 'protein' | 'carbs' | 'produce' | 'seasoning' | 'dairy' | 'other';
 
 export type Ingredient = {
   id: number;
   name: string;
-  quantity?: string;
   ingredientType?: {
     name: IngredientType;
     icon?: string;
     color?: string;
   };
+};
+
+export type RecipeIngredient = {
+  id: number;
+  quantity: number;
+  ingredient: Ingredient;
+  unit: string;
+  recipe: [];
 };
 
 export type Recipe = {
@@ -19,6 +28,6 @@ export type Recipe = {
     url: string;
     alternativeText: string;
   }>;
-  ingredients: Ingredient[];
+  recipeIngredients: RecipeIngredient[];
   notes?: string;
 };

@@ -5,8 +5,10 @@
   import { CookingPot } from '@lucide/svelte';
   import FallbackImage from './FallbackImage.svelte';
 
-  let { id, title, ingredients, images, slug }: Recipe = $props();
+  let { id, title, recipeIngredients, images, slug }: Recipe = $props();
   let thumbnail = $derived(images?.[0]);
+
+  $inspect('ingredients', recipeIngredients);
 </script>
 
 <a href="/recipes/{slug}" class="flex items-center gap-4 pb-6 border-b border-neutral-900 items-centerß">
@@ -18,6 +20,6 @@
 
   <div>
     <h2 class="text-lg text-fg-default font-semibold">{title}</h2>
-    <p class="text-fg-tertiary">{displayIngredientsInfo(ingredients, true)}</p>
+    <p class="text-fg-tertiary">{displayIngredientsInfo(recipeIngredients)}</p>
   </div>
 </a>
